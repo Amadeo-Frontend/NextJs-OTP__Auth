@@ -8,6 +8,8 @@ import {
 } from "firebase/auth";
 import { app } from "@/app/config";
 import { useRouter } from "next/navigation";
+import "react-toastify/dist/ReactToastify.css";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function Login() {
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -49,7 +51,7 @@ export default function Login() {
       setConfirmationResult(confirmation);
       setOtpSent(true);
       setPhoneNumber("");
-      alert("OTP foi enviado");
+      toast.success("OTP foi enviado");
     } catch (error) {
       console.error(error);
     }
@@ -64,31 +66,36 @@ export default function Login() {
     }
   };
   return (
-    <div>
-      {!otpSent ? <div id="recaptcha-container"></div> : null}
-      <input
-        type="tel"
-        value={phoneNumber}
-        onChange={handlePhoneNumberChange}
-        placeholder="Digite seu telefone com o +55"
-        className="border border-gray-500 p-2 rounded-md"
-      />
-      <input
-        type="text"
-        value={otp}
-        onChange={handleOTPChange}
-        placeholder="Insira o códIgo OTP"
-        className="border border-gray-500 p-2 rounded-md"
-      />
-      <button
-        onClick={otpSent ? handleOTPSubmit : handleSendOtp}
-        className={`bg-${
-          otpSent ? "green" : "blue"
-        }-500 text-white p-2 rounded-md m-2`}
-        style={{ backgroundColor: otpSent ? "green" : "blue" }}
-      >
-        {otpSent ? "Submit OTP" : "Enviar OTP"}
-      </button>
-    </div>
+    <>
+      <div className="flex flex-col gap-2">
+        {!otpSent ? (
+          <div id="recaptcha-container" className="rounded-md"></div>
+        ) : null}
+        <input
+          type="tel"
+          value={phoneNumber}
+          onChange={handlePhoneNumberChange}
+          placeholder="Digite seu telefone com o +55"
+          className="border border-gray-500 p-2 rounded-md"
+        />
+        <input
+          type="text"
+          value={otp}
+          onChange={handleOTPChange}
+          placeholder="Insira o códIgo OTP"
+          className="border border-gray-500 p-2 rounded-md"
+        />
+        <button
+          onClick={otpSent ? handleOTPSubmit : handleSendOtp}
+          className={`bg-${
+            otpSent ? "green" : "blue"
+          }-500 text-white p-2 rounded-md m-2 `}
+          style={{ backgroundColor: otpSent ? "green" : "blue" }}
+        >
+          {otpSent ? "Inserir OTP" : "Enviar OTP"}
+        </button>
+      </div>
+      <ToastContainer />
+    </>
   );
 }
