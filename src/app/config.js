@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import 'firebase/auth'
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 const firebaseConfig = {
-  apiKey: "NEXT_PUBLIC_API_KEY",
+  apiKey: apiKey,
   authDomain: "authapp-31a6d.firebaseapp.com",
   projectId: "authapp-31a6d",
   storageBucket: "authapp-31a6d.appspot.com",
