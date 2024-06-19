@@ -4,7 +4,7 @@ import { getAuth, signOut } from "firebase/auth";
 import { app } from "../config";
 import { useRouter } from "next/navigation";
 
-const dashboard = () => {
+const Dashboard = () => {
 const auth = getAuth(app);
 const router = useRouter();
 
@@ -25,4 +25,4 @@ const handleLogout = async () => {
   </main>;
 };
 
-export default dashboard;
+export default Dashboard;
