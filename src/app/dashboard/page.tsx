@@ -16,13 +16,14 @@ const Dashboard: React.FC = () => {
     try {
       await signOut(auth);
       toast("Deslogado com sucesso!", {
-        position: "top-right",
+        position: "top-center",
         autoClose: 3000,
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
+        theme: "dark",
       });
       setTimeout(() => {
         router.push("/");
@@ -36,11 +37,11 @@ const Dashboard: React.FC = () => {
     <>
       <ToastContainer />
       <main className="flex min-h-screen flex-col items-center p-12">
-        <div className="flex items-center mb-10 gap-4">
-          <h1 className="text-4xl font-bold text-lime-500">Amadeo Bon | Portfolio</h1>
+        <div className="flex items-center mb-10 gap-20">
+          <h1 className="text-4xl font-bold text-lime-500">Bem vindo(a) ao meu portfolio</h1>
           <button
             onClick={handleLogout}
-            className="bg-red-500 text-white p-2 rounded-md"
+            className="shadow-[inset_0_0_0_2px_#616467] text-black px-4 py-2 rounded-md tracking-widest font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200"
           >
             Logout
           </button>

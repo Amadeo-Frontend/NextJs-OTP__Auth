@@ -61,7 +61,7 @@ const Login: React.FC<LoginProps> = () => {
       setConfirmationResult(confirmation);
       setOtpSent(true);
       setPhoneNumber("");
-      toast.success("OTP foi enviado", { position: "top-center" });
+      toast.success("OTP foi enviado", { position: "top-center",theme: "dark", });
     } catch (error) {
       console.error(error);
     }
