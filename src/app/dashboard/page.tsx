@@ -3,7 +3,7 @@ import React from "react";
 import { getAuth, signOut } from "firebase/auth";
 import { app } from "../config";
 import { useRouter } from "next/navigation";
-import { Bento } from "@/app/components/bento";
+import { Bento } from "@/app/components/Bento";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Footer from "../components/Footer";
