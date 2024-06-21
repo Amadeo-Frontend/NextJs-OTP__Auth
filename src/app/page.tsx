@@ -1,5 +1,5 @@
 "use client";
-import Login from "./login";
+import Login from "@/app/login";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "./config";
 import { useRouter } from "next/navigation";
